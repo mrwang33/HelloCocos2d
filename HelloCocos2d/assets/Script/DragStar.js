@@ -30,6 +30,13 @@ cc.Class({
     },
 
     onLoad: function () {
+        // ³õÊ¼»¯Åö×²Ïä
+        cc.director.getCollisionManager().enabled = true;
+        cc.director.getCollisionManager().enabledDebugDraw = true;
+        cc.director.enabledDrawBoundingBox = true;
+        this.touchingNumber = 0;
+
+
         this.node.on(cc.Node.EventType.TOUCH_START, function (event) {
             this.opacity = 100;
         }, this.node);
@@ -44,6 +51,24 @@ cc.Class({
         }, this.node)
     },
 
+
+    onCollisionEnter: function (other) {
+        this.node.color = cc.Color.RED;
+        this.touchingNumber++;
+        cc.log(this.touchingNumber);
+    },
+
+    onCollisionStay: function (other) {
+        // console.log('on collision stay');
+    },
+
+    onCollisionExit: function () {
+        this.touchingNumber--;
+        cc.log(this.touchingNumber);
+        if (this.touchingNumber === 0) {
+            this.node.color = cc.Color.WHITE;
+        }
+    },
     // LIFE-CYCLE CALLBACKS:
 
     // onLoad () {},

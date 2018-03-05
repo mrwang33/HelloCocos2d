@@ -361,9 +361,9 @@
     },
     "_enabled": true,
     "jumpHeight": 231.49999999999974,
-    "jumpDuration": 1.0000000000000049,
-    "maxMoveSpeed": 97.70000000000007,
-    "accel": 202.19999999999982
+    "jumpDuration": 0.4000000000000049,
+    "maxMoveSpeed": 400,
+    "accel": 1000
   },
   {
     "__type__": "cc.Node",
